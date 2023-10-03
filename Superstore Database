@@ -57,6 +57,6 @@ WHERE category = 'Kitchen Supplies'
 SELECT *
 FROM superstore
 WHERE category = 'Electronics'
-ORDER BY average_rating ASC
+ORDER BY average_rating DESC
 ;
 
