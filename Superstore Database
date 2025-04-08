@@ -28,24 +28,22 @@ VALUES
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
 
-#Use a SELECT statement to order the items by price.
-SELECT item_name, price
-FROM superstore
-GROUP BY price;
+--#1. Write a SQL query that orders the items by price.
+SELECT price
+FROM superstore;
 
-
-#Show a statistic about the item prices.
+--#2. Find the average item amount spent in the store.
 SELECT AVG(price)
 FROM superstore;
 
-
-#Show a statistic about the price for items in the category of 'Kitchen Supplies'.
-SELECT SUM(price), category "Kitchen Supplies"
-FROM superstore;
-
-
-#Show a statistic about the average rating for items in the category of 'Electronics'.
-SELECT item_name, SUM(stock_quantity)
+--#3. Find the average amount spent Kitchen Supplies.
+SELECT AVG(price), category
 FROM superstore
-WHERE item_name="Wireless Earbuds";
+WHERE category = 'Kitchen Supplies';
 
+--#4. Find the items in Kitchen Supplies that are over $25 and list them in descending price order.
+SELECT price, item_name, category
+FROM superstore
+WHERE category = 'Kitchen Supplies'
+AND price > 25
+ORDER BY price DESC;
